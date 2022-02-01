@@ -22,20 +22,21 @@ const List = ({ name, taskList }) => {
       <div className="w-100 bg-accent-color">
         <input
           type="text"
-          className="header_title w-100 bgc-transp main-color"
+          className="header_title bgc-transp main-color"
           placeholder="Name your todo list"
           value={name === "" ? todoTitle : name}
           onChange={(e) => setTodoTitle(e.target.value)}
         />
       </div>
       <div className="list_main flex-1 w-100">
-        {tasks.map((task) => {
+        {tasks.map((task, key) => {
           return (
             <Task
               text={task.text}
               done={task.done}
               tasks={tasks}
               setTaskList={setTasks}
+              key={key}
             />
           );
         })}
@@ -44,6 +45,7 @@ const List = ({ name, taskList }) => {
         <input
           type="text"
           name="taskName"
+          placeholder="Enter task"
           className="footer_task-name flex-1 bgc-transp main-color"
           onChange={(e) => setNewTaskText(e.target.value)}
         />

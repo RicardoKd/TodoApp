@@ -10,6 +10,8 @@ const Task = ({ text, done, tasks, setTaskList }) => {
 
   const taskDone = () => {
     setTaskList(tasks.filter((value) => value.text !== text));
+    console.log(tasks);
+    console.log(getDone);
     setDone(!getDone);
     setTaskList([...tasks]);
   };

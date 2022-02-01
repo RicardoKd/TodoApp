@@ -10,11 +10,14 @@
 
 .header_title {
   font-size: 22px;
+  width: calc(100% - 10px);
 }
 
 .addTaskBtn {
   border: none;
   cursor: pointer;
+  background-color: var(--accent-color-2);
+  padding: 0 3px;
 }
 
 input {

@@ -27,8 +27,8 @@ function App() {
         </button>
       </header>
       <main>
-        {lists.map((list) => (
-          <List name={list.name} taskList={list.taskList} />
+        {lists.map((list, key) => (
+          <List name={list.name} taskList={list.taskList} key={key}/>
         ))}
         {}
       </main>
