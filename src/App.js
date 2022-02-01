@@ -1,23 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import List from "./List";
+import "./styles/App.css";
 
 function App() {
+  const [lists, setLists] = useState([]);
+
+  const createNewList = () => {
+    setLists([
+      {
+        name: "New TodoX",
+        taskList: [],
+      },
+      ...lists,
+    ]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <header className="bg-accent-color">
+        <button
+          type="button"
+          className="fill bgc-transp"
+          onClick={createNewList}
         >
-          Learn React
-        </a>
+          Create new TodoX
+        </button>
       </header>
+      <main>
+        {lists.map((list) => (
+          <List name={list.name} taskList={list.taskList} />
+        ))}
+        {}
+      </main>
+      <footer className="bg-accent-color">
+        <p className="developer main-color">
+          Developed_by_
+          <a
+            className="developer-link"
+            href="https://www.linkedin.com/in/richard-kadian"
+          >
+            Richard Kadian
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }

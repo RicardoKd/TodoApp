@@ -1,0 +1,55 @@
+:root {
+  /* Fonts */
+  --f-main: "Roboto Mono", monospace; /* h1, h2, h3, h6 */
+
+  /* Colors */
+  --main-color: #ecf0f1;
+  --btn-hvr: #9b59b6;
+  --accent-color: #282c34;
+  --accent-color-2: #2980b9;
+
+  /* Other */
+  --main-trans-time: 0.2s;
+  --header-height: 50px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: var(--f-main);
+  letter-spacing: 1px;
+}
+
+button:hover::after {
+  top: 0px;
+  left: 0px;
+  background-color: var(--btn-hvr);
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.bgc-transp {
+  background-color: transparent;
+}
+
+.bg-accent-color {
+  background-color: var(--accent-color);
+}
+
+.main-color {
+  color: var(--main-color);
+}
+
+.crossed {
+  text-decoration: line-through;
+}
