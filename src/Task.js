@@ -1,31 +1,27 @@
-import { useState } from "react";
 import "./styles/Task.css";
 
-const Task = ({ text, done, tasks, setTaskList }) => {
-  const [getDone, setDone] = useState(done);
-
+const Task = ({ task, tasks, setTaskList }) => {
   const taskDelete = () => {
-    setTaskList(tasks.filter((value) => value.text !== text));
+    setTaskList(tasks.filter((value) => value.text !== task.text));
   };
 
   const taskDone = () => {
-    setTaskList(tasks.filter((value) => value.text !== text));
-    console.log(tasks);
-    console.log(getDone);
-    setDone(!getDone);
-    setTaskList([...tasks]);
+    task.done = !task.done;
+    const filteredTasks = tasks.filter((value) => value.text !== task.text);
+    filteredTasks.push(task);
+    setTaskList(filteredTasks);
   };
 
   return (
     <div className="task d-flex">
       <p
         className={
-          getDone
+          task.done
             ? "task_text flex-1 main-color crossed"
             : "task_text flex-1 main-color"
         }
       >
-        {text}
+        {task.text}
       </p>
       <button
         type="button"

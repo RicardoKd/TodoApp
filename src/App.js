@@ -3,7 +3,14 @@ import List from "./List";
 import "./styles/App.css";
 
 function App() {
-  const [lists, setLists] = useState([]);
+  let a = [];
+
+  for (let i = 0; i < localStorage.length; i++) {
+    let item = JSON.parse(localStorage.getItem(i));
+    console.log(item);
+    a.push(item);
+  }
+  const [lists, setLists] = useState(a);
 
   const createNewList = () => {
     setLists([
@@ -28,7 +35,7 @@ function App() {
       </header>
       <main>
         {lists.map((list, key) => (
-          <List name={list.name} taskList={list.taskList} key={key}/>
+          <List list={list} key={key} storageInd={key} />
         ))}
         {}
       </main>

@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Task from "./Task";
 import "./styles/List.css";
 
-const List = ({ name, taskList }) => {
-  const [todoTitle, setTodoTitle] = useState("New Todo");
-  const [tasks, setTasks] = useState(taskList);
+const List = ({ list, storageInd }) => {
+  const [todoTitle, setTodoTitle] = useState(
+    list.name === "" ? "New TodoX" : list.name
+  );
+  const [tasks, setTasks] = useState(list.taskList);
   const [newTaskText, setNewTaskText] = useState("");
 
   const addTask = (e) => {
@@ -17,6 +19,16 @@ const List = ({ name, taskList }) => {
       .forEach((el) => (el.value = ""));
   };
 
+  useEffect(() => {
+    localStorage.setItem(
+      storageInd,
+      JSON.stringify({
+        name: todoTitle,
+        taskList: tasks,
+      })
+    );
+  }, [storageInd, tasks, todoTitle]);
+
   return (
     <div className="list d-flex">
       <div className="w-100 bg-accent-color">
@@ -24,20 +36,14 @@ const List = ({ name, taskList }) => {
           type="text"
           className="header_title bgc-transp main-color"
           placeholder="Name your todo list"
-          value={name === "" ? todoTitle : name}
+          value={todoTitle}
           onChange={(e) => setTodoTitle(e.target.value)}
         />
       </div>
       <div className="list_main flex-1 w-100">
         {tasks.map((task, key) => {
           return (
-            <Task
-              text={task.text}
-              done={task.done}
-              tasks={tasks}
-              setTaskList={setTasks}
-              key={key}
-            />
+            <Task task={task} tasks={tasks} setTaskList={setTasks} key={key} />
           );
         })}
       </div>

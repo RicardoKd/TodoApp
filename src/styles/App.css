@@ -40,6 +40,11 @@ main {
   position: relative;
   text-decoration: none;
   color: var(--accent-color-2);
+  transition: var(--main-trans-time);
+}
+
+.developer-link:hover {
+  color: var(--main-color);
 }
 
 .developer-link::after,
