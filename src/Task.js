@@ -7,13 +7,27 @@ const Task = ({ task, tasks, setTaskList }) => {
 
   const taskDone = () => {
     task.done = !task.done;
-    const filteredTasks = tasks.filter((value) => value.text !== task.text);
+    const filteredTasks = tasks.filter(value => value.text !== task.text);
     filteredTasks.push(task);
     setTaskList(filteredTasks);
   };
 
   return (
     <div className="task d-flex">
+      {
+      /* TODO: Task editing
+        <input
+        type="text"
+        className={
+          task.done
+            ? "task_text flex-1 main-color bgc-transp crossed"
+            : "task_text flex-1 main-color bgc-transp"
+        }
+        placeholder="Name your todo list"
+        value={task.text}
+        onChange={(e) => {task.text = e.target.value}}
+      /> */}
+
       <p
         className={
           task.done

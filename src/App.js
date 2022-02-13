@@ -7,7 +7,6 @@ function App() {
 
   for (let i = 0; i < localStorage.length; i++) {
     let item = JSON.parse(localStorage.getItem(i));
-    console.log(item);
     a.push(item);
   }
   const [lists, setLists] = useState(a);
@@ -35,9 +34,13 @@ function App() {
       </header>
       <main>
         {lists.map((list, key) => (
-          <List list={list} key={key} storageInd={key} />
+          <List
+            todoLists={lists}
+            setTodoLists={setLists}
+            storageInd={key}
+            key={key}
+          />
         ))}
-        {}
       </main>
       <footer className="bg-accent-color">
         <p className="developer main-color">

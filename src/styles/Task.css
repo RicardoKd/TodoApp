@@ -8,7 +8,7 @@
 
 .task_text {
   overflow-wrap: break-word;
-  display: inline;
+  /* display: inline; */
 }
 
 .task_btn {

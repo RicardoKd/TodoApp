@@ -10,7 +10,7 @@
 
 .header_title {
   font-size: 22px;
-  width: calc(100% - 10px);
+  /* width: calc(100% - 10px); */
 }
 
 .addTaskBtn {
@@ -24,4 +24,19 @@ input {
   padding: 5px;
   border: none;
   outline: 0;
+}
+
+.del-list-btn {
+  border: none;
+  cursor: pointer;
+  transition: var( --main-trans-time)
+}
+
+.del-list-btn:hover {
+  filter: invert(45%) sepia(26%) saturate(1212%) hue-rotate(238deg) brightness(88%) contrast(86%);
+}
+
+.del-list-btn-icon {
+  vertical-align: text-bottom;
+  filter: invert(98%) sepia(6%) saturate(94%) hue-rotate(140deg) brightness(96%) contrast(97%);
 }
